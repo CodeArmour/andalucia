@@ -11,8 +11,21 @@ export function placeholderSrc(label: string) {
   return `data:image/svg+xml;charset=utf-8,${encodeURIComponent(svg)}`;
 }
 
-export default function PlaceholderImage({ className, label, src, alt, style }: PlaceholderImageProps) {
+export default function PlaceholderImage({
+  className,
+  label,
+  src,
+  alt,
+  style,
+}: PlaceholderImageProps) {
   // Placeholder assets intentionally use generated data-URI images until final photos are supplied.
   // eslint-disable-next-line @next/next/no-img-element
-  return <img className={className} src={src ?? placeholderSrc(label)} alt={alt ?? label} style={style} />;
+  return (
+    <img
+      className={className}
+      src={src ?? placeholderSrc(label)}
+      alt={alt ?? label}
+      style={style}
+    />
+  );
 }
