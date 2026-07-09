@@ -854,7 +854,11 @@ h2.heading em {
   display: grid;
   grid-template-columns: 360px 1fr;
   gap: 72px;
-  align-items: start;
+  align-items: stretch;
+}
+.founder-layout > .fnd-img {
+  aspect-ratio: auto;
+  min-height: 100%;
 }
 .fnd-img {
   background: linear-gradient(160deg, var(--ink-soft), var(--ink));
@@ -1538,6 +1542,11 @@ footer {
   }
   .founder-layout {
     grid-template-columns: 1fr;
+  }
+  .founder-layout > .fnd-img {
+    aspect-ratio: 3/4;
+    min-height: 0;
+    max-height: 620px;
   }
   .svc-detail-layout {
     grid-template-columns: 1fr;

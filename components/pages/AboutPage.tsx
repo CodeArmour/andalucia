@@ -74,7 +74,6 @@ export default function AboutPage({ onNavigate }: PageProps) {
       </section>
       <section className="sec">
         <div className="sec-inner">
-          <div className="eyebrow">Founder Profile</div>
           <h2 className="heading" style={{ marginTop: 12, marginBottom: 48 }}>
             The engineer <em>behind</em> the consultancy.
           </h2>
