@@ -21,9 +21,9 @@ function escapeHtml(input: string) {
 function field(label: string, content: string) {
   return `
     <tr>
-      <td style="padding:0 0 14px;">
-        <div style="font-size:12px;line-height:1.3;text-transform:uppercase;letter-spacing:.08em;color:#7b746b;font-weight:700;margin-bottom:6px;">${label}</div>
-        <div style="font-size:15px;line-height:1.55;color:#1f2a2e;font-weight:600;">${escapeHtml(content)}</div>
+      <td style="padding:14px 0;border-bottom:1px solid #e7e2d8;">
+        <div style="font-size:11px;line-height:1.3;text-transform:uppercase;letter-spacing:.12em;color:#6f7776;font-weight:700;margin-bottom:5px;">${label}</div>
+        <div style="font-size:15px;line-height:1.55;color:#1f2a2e;font-weight:500;">${escapeHtml(content)}</div>
       </td>
     </tr>
   `;
@@ -40,9 +40,9 @@ function buildEmailHtml(data: {
 }) {
   const fullName = `${data.firstName} ${data.lastName}`;
   const safeMessage = escapeHtml(data.message).replace(/\n/g, "<br />");
-  const replyHref = `mailto:${encodeURIComponent(data.email)}?subject=${encodeURIComponent(
-    `Re: ${data.enquiryType} enquiry`,
-  )}`;
+  const replyHref = `mailto:${data.email}?subject=${encodeURIComponent(
+    `Re: Website enquiry - ${data.enquiryType}`,
+  )}&body=${encodeURIComponent(`Dear ${data.firstName},\n\n`)}`;
 
   return `<!doctype html>
 <html lang="en">
@@ -51,27 +51,31 @@ function buildEmailHtml(data: {
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Website enquiry from ${escapeHtml(fullName)}</title>
   </head>
-  <body style="margin:0;padding:0;background:#f4efe5;font-family:Arial,Helvetica,sans-serif;color:#1f2a2e;">
-    <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background:#f4efe5;margin:0;padding:32px 16px;">
+  <body style="margin:0;padding:0;background:#f3f1ec;font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;color:#1f2a2e;">
+    <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background:#f3f1ec;margin:0;padding:34px 14px;">
       <tr>
         <td align="center">
-          <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="max-width:680px;background:#fffaf0;border:1px solid #e1d6c2;border-radius:18px;overflow:hidden;">
+          <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="max-width:700px;background:#ffffff;border:1px solid #d9ddd9;border-radius:10px;overflow:hidden;">
             <tr>
-              <td style="background:#17343a;padding:30px 32px;">
-                <div style="font-size:12px;line-height:1;text-transform:uppercase;letter-spacing:.16em;color:#d6a84f;font-weight:700;margin-bottom:16px;">Andalucia Engineering Consulting</div>
-                <h1 style="margin:0;color:#fff6e5;font-family:Georgia,'Times New Roman',serif;font-size:34px;line-height:1.12;font-weight:400;">New website enquiry</h1>
-                <p style="margin:14px 0 0;color:rgba(255,246,229,.72);font-size:15px;line-height:1.65;">A contact form submission was received from ${escapeHtml(fullName)}.</p>
+              <td style="background:#132f35;padding:28px 34px;border-bottom:5px solid #cda24a;">
+                <div style="font-size:11px;line-height:1;text-transform:uppercase;letter-spacing:.18em;color:#cda24a;font-weight:700;margin-bottom:14px;">Andalucia Engineering Consulting</div>
+                <h1 style="margin:0;color:#ffffff;font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;font-size:25px;line-height:1.25;font-weight:700;">New Contact Form Enquiry</h1>
+                <p style="margin:11px 0 0;color:#dce5e3;font-size:14px;line-height:1.65;">Received from ${escapeHtml(fullName)} via andaluciagroup.eu.</p>
               </td>
             </tr>
             <tr>
-              <td style="padding:30px 32px 10px;">
+              <td style="padding:30px 34px 8px;">
                 <table role="presentation" width="100%" cellspacing="0" cellpadding="0">
                   <tr>
-                    <td style="padding:0 0 18px;">
-                      <div style="background:#efe5d1;border-left:4px solid #d6a84f;border-radius:12px;padding:18px 20px;">
-                        <div style="font-size:12px;line-height:1.3;text-transform:uppercase;letter-spacing:.08em;color:#78613a;font-weight:700;margin-bottom:8px;">Message</div>
-                        <div style="font-size:16px;line-height:1.75;color:#243236;">${safeMessage}</div>
-                      </div>
+                    <td style="padding:0 0 20px;">
+                      <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background:#f7f5ef;border:1px solid #e2d8c5;border-left:5px solid #cda24a;border-radius:8px;">
+                        <tr>
+                          <td style="padding:22px 24px;">
+                            <div style="font-size:11px;line-height:1.3;text-transform:uppercase;letter-spacing:.12em;color:#6f7776;font-weight:700;margin-bottom:10px;">Client message</div>
+                            <div style="font-size:16px;line-height:1.78;color:#1f2a2e;">${safeMessage}</div>
+                          </td>
+                        </tr>
+                      </table>
                     </td>
                   </tr>
                   ${field("Name", fullName)}
@@ -83,9 +87,14 @@ function buildEmailHtml(data: {
               </td>
             </tr>
             <tr>
-              <td style="padding:8px 32px 32px;">
-                <a href="${replyHref}" style="display:inline-block;background:#d6a84f;color:#172b31;text-decoration:none;font-size:14px;line-height:1;font-weight:800;padding:15px 20px;border-radius:999px;">Reply to ${escapeHtml(data.firstName)}</a>
-                <p style="margin:20px 0 0;color:#7b746b;font-size:12px;line-height:1.6;">This message was sent from the contact form on andaluciagroup.eu. Use the sender email above for direct correspondence.</p>
+              <td style="padding:18px 34px 34px;">
+                <a href="${replyHref}" target="_blank" style="display:inline-block;background:#132f35;color:#ffffff;text-decoration:none;font-size:14px;line-height:1;font-weight:700;padding:14px 20px;border-radius:4px;">Compose Reply</a>
+                <p style="margin:18px 0 0;color:#6f7776;font-size:12px;line-height:1.65;">This email was generated automatically from the Andalucia Engineering Consulting website contact form. The reply button opens a new email addressed to ${escapeHtml(data.email)}.</p>
+              </td>
+            </tr>
+            <tr>
+              <td style="background:#f7f5ef;border-top:1px solid #e7e2d8;padding:16px 34px;color:#6f7776;font-size:11px;line-height:1.6;">
+                Andalucia Engineering Consulting · Budapest, Hungary · info@andaluciagroup.eu
               </td>
             </tr>
           </table>
