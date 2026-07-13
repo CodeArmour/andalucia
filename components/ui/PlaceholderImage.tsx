@@ -1,4 +1,6 @@
-﻿type PlaceholderImageProps = {
+import Image from "next/image";
+
+type PlaceholderImageProps = {
   className?: string;
   label: string;
   src?: string;
@@ -18,12 +20,28 @@ export default function PlaceholderImage({
   alt,
   style,
 }: PlaceholderImageProps) {
-  // Placeholder assets intentionally use generated data-URI images until final photos are supplied.
+  const imageSrc = src ?? placeholderSrc(label);
+  const useNativeImage =
+    !src || className?.includes("hero-img") || className?.includes("about-hero-img");
+
+  if (!useNativeImage) {
+    return (
+      <Image
+        className={className}
+        src={imageSrc}
+        alt={alt ?? label}
+        fill
+        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 720px"
+        style={{ objectFit: "cover", ...style }}
+      />
+    );
+  }
+
   return (
     // eslint-disable-next-line @next/next/no-img-element
     <img
       className={className}
-      src={src ?? placeholderSrc(label)}
+      src={imageSrc}
       alt={alt ?? label}
       style={style}
     />

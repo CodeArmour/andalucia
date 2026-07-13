@@ -37,11 +37,11 @@ export default function HomePage({ onNavigate }: PageProps) {
               Civil &amp; Infrastructure Consultancy
             </div>
             <h1>
-              Engineering
+              Civil &amp; Water
               <br />
-              Consulting.
+              Engineering.
               <br />
-              <em>Built on Excellence.</em>
+              <em>Consulting Excellence.</em>
             </h1>
             <p className="hero-sub">
               Budapest-based engineering consultancy delivering technical

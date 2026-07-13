@@ -93,6 +93,7 @@ img {
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  position: relative;
 }
 .logo-box svg {
   width: 40px;
@@ -895,6 +896,7 @@ h2.heading em {
   align-items: center;
   justify-content: center;
   gap: 12px;
+  position: relative;
 }
 .fnd-img img {
   width: 100%;
@@ -1836,6 +1838,7 @@ button.logo,
   min-height: 280px;
   overflow: hidden;
   background: var(--ink);
+  position: relative;
 }
 .project-grid-photo img {
   width: 100%;
@@ -1948,6 +1951,7 @@ button.logo,
 .career-photo {
   overflow: hidden;
   background: var(--white);
+  position: relative;
 }
 .career-photo img {
   width: 100%;
@@ -2022,6 +2026,42 @@ button.logo,
   color: var(--stone-mid);
   margin-top: 14px;
   line-height: 1.6;
+}
+.not-found-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 120px 24px;
+  background: var(--cream);
+}
+.not-found-inner {
+  max-width: 680px;
+  text-align: center;
+}
+.not-found-inner p {
+  color: var(--stone-light);
+  font-size: 16px;
+  line-height: 1.75;
+  margin: 18px auto 28px;
+}
+.not-found-links {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.not-found-links a {
+  font-family: var(--ff-h);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--ink);
+  border: 1px solid rgba(30,78,114,.18);
+  padding: 12px 16px;
+  background: var(--white);
 }
 @media (max-width: 780px) {
   .split-intro,
