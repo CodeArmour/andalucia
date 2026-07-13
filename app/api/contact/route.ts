@@ -40,7 +40,6 @@ function buildEmailHtml(data: {
 }) {
   const fullName = `${data.firstName} ${data.lastName}`;
   const safeMessage = escapeHtml(data.message).replace(/\n/g, "<br />");
-  const replyHref = `mailto:${data.email}`;
 
   return `<!doctype html>
 <html lang="en">
@@ -86,8 +85,16 @@ function buildEmailHtml(data: {
             </tr>
             <tr>
               <td style="padding:18px 34px 34px;">
-                <a href="${replyHref}" style="display:inline-block;background:#132f35;color:#ffffff;text-decoration:none;font-size:14px;line-height:1;font-weight:700;padding:14px 20px;border-radius:4px;">Compose Reply</a>
-                <p style="margin:18px 0 0;color:#6f7776;font-size:12px;line-height:1.65;">This email was generated automatically from the Andalucia Engineering Consulting website contact form. The reply button opens a new email addressed to ${escapeHtml(data.email)}.</p>
+                <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background:#eef4f3;border:1px solid #d5e0de;border-radius:8px;">
+                  <tr>
+                    <td style="padding:18px 20px;">
+                      <div style="font-size:12px;line-height:1.3;text-transform:uppercase;letter-spacing:.12em;color:#5b6867;font-weight:700;margin-bottom:8px;">Reply guidance</div>
+                      <div style="font-size:15px;line-height:1.65;color:#1f2a2e;">Use the normal <strong>Reply</strong> button in your mailbox to respond directly to the client. This email includes the correct Reply-To address:</div>
+                      <div style="font-size:16px;line-height:1.5;color:#132f35;font-weight:700;margin-top:10px;">${escapeHtml(data.email)}</div>
+                    </td>
+                  </tr>
+                </table>
+                <p style="margin:18px 0 0;color:#6f7776;font-size:12px;line-height:1.65;">This email was generated automatically from the Andalucia Engineering Consulting website contact form.</p>
               </td>
             </tr>
             <tr>
