@@ -18,10 +18,11 @@ export default function ContactPage(_props: PageProps) {
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    const form = event.currentTarget;
     setStatus("sending");
     setStatusMessage("");
 
-    const payload = Object.fromEntries(new FormData(event.currentTarget).entries());
+    const payload = Object.fromEntries(new FormData(form).entries());
 
     try {
       const response = await fetch("/api/contact", {
@@ -33,7 +34,7 @@ export default function ContactPage(_props: PageProps) {
 
       if (!response.ok) throw new Error(result.message ?? "Unable to send your enquiry.");
 
-      event.currentTarget.reset();
+      form.reset();
       setStatus("success");
       setStatusMessage(result.message ?? "Your enquiry has been sent.");
     } catch (error) {
