@@ -26,6 +26,12 @@ export const metadata: Metadata = {
   applicationName: 'Andalucia Engineering Consulting',
   manifest: '/manifest.webmanifest',
   keywords: [
+    'Andalucia Group',
+    'andaluciagroup',
+    'andaluciagroup.eu',
+    'Andalucia Engineering Consulting',
+    'Andalucia Group engineering',
+    'Andalucia Group Budapest',
     'civil engineering consultancy',
     'water resources engineering',
     'construction supervision',
@@ -87,7 +93,15 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     '@context': 'https://schema.org',
     '@type': 'ProfessionalService',
     name: 'Andalucia Engineering Consulting',
+    alternateName: [
+      'Andalucia Group',
+      'andaluciagroup',
+      'Andalucia Engineering',
+      'Andalucia Engineering Consultancy',
+    ],
     url: siteUrl,
+    identifier: siteUrl,
+    legalName: 'Andalucia Engineering Consulting',
     image: `${siteUrl}/home/logo.png`,
     description: pageSeo.home.description,
     email: 'info@andaluciagroup.eu',
@@ -110,12 +124,29 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     ],
   };
 
+  const websiteJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'Andalucia Group',
+    alternateName: [
+      'Andalucia Engineering Consulting',
+      'andaluciagroup.eu',
+      'Andalucia Engineering',
+    ],
+    url: siteUrl,
+    inLanguage: 'en',
+  };
+
   return (
     <html lang="en" className={`${plusJakarta.variable} ${inter.variable}`} suppressHydrationWarning>
       <body>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
         />
         <GoogleAnalytics />
         {children}

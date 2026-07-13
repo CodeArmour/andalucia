@@ -44,10 +44,10 @@ export default function HomePage({ onNavigate }: PageProps) {
               <em>Consulting Excellence.</em>
             </h1>
             <p className="hero-sub">
-              Budapest-based engineering consultancy delivering technical
-              advisory, construction supervision, and project management for
-              complex infrastructure programmes across Europe, MENA, and Central
-              Asia.
+              Andalucia Group is a Budapest-based engineering consultancy
+              delivering technical advisory, construction supervision, and
+              project management for complex infrastructure programmes across
+              Europe, MENA, and Central Asia.
             </p>
             <div className="hero-actions">
               <button

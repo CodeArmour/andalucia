@@ -45,9 +45,9 @@ export const siteUrl = 'https://www.andaluciagroup.eu';
 
 export const pageSeo: Record<PageId, { title: string; description: string; priority: number }> = {
   home: {
-    title: 'Civil & Water Infrastructure Consultancy | Andalucia',
+    title: 'Andalucia Group | Engineering Consulting Budapest',
     description:
-      'Budapest civil and water infrastructure consultancy providing technical advisory, construction supervision, project management and FIDIC support.',
+      'Andalucia Group is a Budapest engineering consultancy for civil infrastructure, water resources, supervision, advisory, and project delivery.',
     priority: 1,
   },
   about: {
