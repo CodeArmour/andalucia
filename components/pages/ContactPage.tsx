@@ -49,7 +49,7 @@ export default function ContactPage(_props: PageProps) {
               lineHeight: 1.75,
             }}
           >
-            We respond to all enquiries within one business day. For urgent
+            We respond to all enquiries within three business days. For urgent
             requirements, please note this in your message.
           </p>
         </div>
@@ -80,7 +80,7 @@ export default function ContactPage(_props: PageProps) {
               ))}
               <div className="response-box">
                 <strong>Response commitment</strong>We respond to all enquiries
-                within one business day. For urgent project requirements or
+                within three business days. For urgent project requirements or
                 time-sensitive tenders, please note this in your message and we
                 will prioritise accordingly.
               </div>

@@ -200,7 +200,7 @@ export default function HomePage({ onNavigate }: PageProps) {
             <br />
             protects the
             <br />
-            <em>employer's position.</em>
+            <em>client's position.</em>
           </h2>
           <p className="body-m" style={{ marginBottom: 28 }}>
             Construction disputes don't start at adjudication. They start when
