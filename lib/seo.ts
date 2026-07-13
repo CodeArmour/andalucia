@@ -7,10 +7,16 @@ export function metadataFor(page: PageId): Metadata {
   const url = `${siteUrl}${path === '/' ? '' : path}`;
 
   return {
-    title: seo.title,
+    title: {
+      absolute: seo.title,
+    },
     description: seo.description,
     alternates: {
       canonical: path,
+      languages: {
+        en: path,
+        'x-default': path,
+      },
     },
     openGraph: {
       title: seo.title,

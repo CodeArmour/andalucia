@@ -1,5 +1,6 @@
-import type { Metadata } from 'next';
+﻿import type { Metadata } from 'next';
 import { Inter, Plus_Jakarta_Sans } from 'next/font/google';
+import GoogleAnalytics from '@/components/GoogleAnalytics';
 import { pageSeo, siteUrl } from '@/lib/content';
 import './globals.css';
 
@@ -41,6 +42,10 @@ export const metadata: Metadata = {
   publisher: 'Andalucia Engineering Consulting',
   alternates: {
     canonical: '/',
+    languages: {
+      en: '/',
+      'x-default': '/',
+    },
   },
   robots: {
     index: true,
@@ -112,8 +117,10 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
         />
+        <GoogleAnalytics />
         {children}
       </body>
     </html>
   );
 }
+
