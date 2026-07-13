@@ -36,6 +36,23 @@ export default function AboutPage({ onNavigate }: PageProps) {
               administration, and project delivery support, our role is to help
               clients make decisions that stand the test of time.
             </p>
+            <p>
+              Established in Budapest, Hungary, we operate with an international
+              perspective, supporting clients across Europe, the MENA region,
+              and beyond. While the consultancy is newly established, it is
+              founded on extensive professional experience gained through
+              participation in multidisciplinary infrastructure programs
+              delivered alongside public authorities, international consultants,
+              contractors, and development partners.
+            </p>
+            <p>
+              Our expertise spans civil engineering, infrastructure development,
+              transportation, water resources, hydraulic structures, project
+              management, technical advisory, and construction supervision.
+              Every engagement is approached with the same objective: delivering
+              engineering solutions that are practical, resilient, and aligned
+              with the long-term interests of our clients.
+            </p>
           </div>
         </div>
       </div>

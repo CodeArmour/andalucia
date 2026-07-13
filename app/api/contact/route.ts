@@ -191,6 +191,6 @@ export async function POST(request: Request) {
   }
 
   return NextResponse.json({
-    message: "Your enquiry has been sent to info@andaluciagroup.eu.",
+    message: "Your enquiry has been sent successfully. We will respond as soon as possible.",
   });
 }
