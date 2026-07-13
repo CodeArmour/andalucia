@@ -40,9 +40,7 @@ function buildEmailHtml(data: {
 }) {
   const fullName = `${data.firstName} ${data.lastName}`;
   const safeMessage = escapeHtml(data.message).replace(/\n/g, "<br />");
-  const replyHref = `mailto:${data.email}?subject=${encodeURIComponent(
-    `Re: Website enquiry - ${data.enquiryType}`,
-  )}&body=${encodeURIComponent(`Dear ${data.firstName},\n\n`)}`;
+  const replyHref = `mailto:${data.email}`;
 
   return `<!doctype html>
 <html lang="en">
@@ -88,7 +86,7 @@ function buildEmailHtml(data: {
             </tr>
             <tr>
               <td style="padding:18px 34px 34px;">
-                <a href="${replyHref}" target="_blank" style="display:inline-block;background:#132f35;color:#ffffff;text-decoration:none;font-size:14px;line-height:1;font-weight:700;padding:14px 20px;border-radius:4px;">Compose Reply</a>
+                <a href="${replyHref}" style="display:inline-block;background:#132f35;color:#ffffff;text-decoration:none;font-size:14px;line-height:1;font-weight:700;padding:14px 20px;border-radius:4px;">Compose Reply</a>
                 <p style="margin:18px 0 0;color:#6f7776;font-size:12px;line-height:1.65;">This email was generated automatically from the Andalucia Engineering Consulting website contact form. The reply button opens a new email addressed to ${escapeHtml(data.email)}.</p>
               </td>
             </tr>
