@@ -2027,6 +2027,21 @@ button.logo,
   margin-top: 14px;
   line-height: 1.6;
 }
+.form-status {
+  font-size: 13px;
+  line-height: 1.6;
+  margin-top: 14px;
+  padding: 12px 14px;
+  border-left: 2px solid var(--gold);
+  background: rgba(194,117,63,.08);
+  color: var(--stone-light);
+}
+.form-status.success {
+  border-left-color: #3d8b62;
+}
+.form-status.error {
+  border-left-color: #b4533f;
+}
 .not-found-page {
   min-height: 100vh;
   display: flex;

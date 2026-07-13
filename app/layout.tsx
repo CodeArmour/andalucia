@@ -90,7 +90,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     url: siteUrl,
     image: `${siteUrl}/home/logo.png`,
     description: pageSeo.home.description,
-    email: 'info@andalucia-engineering.com',
+    email: 'info@andaluciagroup.eu',
     telephone: '+36203769275',
     address: {
       '@type': 'PostalAddress',
