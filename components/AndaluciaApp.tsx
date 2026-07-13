@@ -14,8 +14,8 @@ import InsightsPage from "@/components/pages/InsightsPage";
 import CareersPage from "@/components/pages/CareersPage";
 import ContactPage from "@/components/pages/ContactPage";
 
-export default function AndaluciaApp() {
-  const [activePage, setActivePage] = useState<PageId>("home");
+export default function AndaluciaApp({ initialPage = "home" }: { initialPage?: PageId }) {
+  const [activePage, setActivePage] = useState<PageId>(initialPage);
   const [activeService, setActiveService] = useState<ServiceId>("civil");
 
   const navigate = (page: PageId, service?: ServiceId) => {

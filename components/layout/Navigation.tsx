@@ -1,4 +1,8 @@
-﻿import { navItems, type PageId, type ServiceId } from "@/lib/content";
+"use client";
+
+import { useState } from "react";
+import Link from "next/link";
+import { navItems, pagePaths, type PageId, type ServiceId } from "@/lib/content";
 import PlaceholderImage from "@/components/ui/PlaceholderImage";
 
 type NavigationProps = {
@@ -8,14 +12,16 @@ type NavigationProps = {
 
 export default function Navigation({
   activePage,
-  onNavigate,
 }: NavigationProps) {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
     <nav id="nav">
       <div className="nav-inner">
-        <button
+        <Link
+          href={pagePaths.home}
           className="logo"
-          onClick={() => onNavigate("home")}
+          onClick={() => setMenuOpen(false)}
           aria-label="Go to home"
         >
           <div className="logo-box">
@@ -29,24 +35,59 @@ export default function Navigation({
             <b>Andalucia</b>
             <span>Engineering Consulting</span>
           </div>
-        </button>
+        </Link>
         <ul className="nav-links">
           {navItems.map((item) => (
             <li key={item.id}>
-              <button
+              <Link
+                href={pagePaths[item.id]}
                 className={activePage === item.id ? "active" : ""}
-                onClick={() => onNavigate(item.id)}
+                onClick={() => setMenuOpen(false)}
               >
                 {item.label}
-              </button>
+              </Link>
             </li>
           ))}
           <li>
-            <button onClick={() => onNavigate("contact")} className="nav-pill">
+            <Link
+              href={pagePaths.contact}
+              onClick={() => setMenuOpen(false)}
+              className="nav-pill"
+            >
               Contact
-            </button>
+            </Link>
           </li>
         </ul>
+        <button
+          className={`nav-menu-toggle ${menuOpen ? "open" : ""}`}
+          type="button"
+          aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
+          aria-expanded={menuOpen}
+          onClick={() => setMenuOpen((open) => !open)}
+        >
+          <span />
+          <span />
+          <span />
+        </button>
+      </div>
+      <div className={`mobile-nav ${menuOpen ? "open" : ""}`}>
+        {navItems.map((item) => (
+          <Link
+            href={pagePaths[item.id]}
+            key={item.id}
+            className={activePage === item.id ? "active" : ""}
+            onClick={() => setMenuOpen(false)}
+          >
+            {item.label}
+          </Link>
+        ))}
+        <Link
+          href={pagePaths.contact}
+          className={`mobile-contact ${activePage === "contact" ? "active" : ""}`}
+          onClick={() => setMenuOpen(false)}
+        >
+          Contact
+        </Link>
       </div>
     </nav>
   );

@@ -1,4 +1,5 @@
-﻿import type { PageId, ServiceId } from "@/lib/content";
+import Link from "next/link";
+import { pagePaths, type PageId, type ServiceId } from "@/lib/content";
 import PlaceholderImage from "@/components/ui/PlaceholderImage";
 
 type FooterProps = {
@@ -13,6 +14,7 @@ const serviceLinks: { label: string; service: ServiceId }[] = [
   { label: "Technical Advisory", service: "advisory" },
   { label: "Quantity Surveying", service: "qs" },
 ];
+
 const company: PageId[] = [
   "about",
   "team",
@@ -22,13 +24,13 @@ const company: PageId[] = [
   "careers",
 ];
 
-export default function Footer({ onNavigate }: FooterProps) {
+export default function Footer({ onNavigate: _onNavigate }: FooterProps) {
   return (
     <footer>
       <div className="foot-inner">
         <div className="foot-grid">
           <div>
-            <button className="logo" onClick={() => onNavigate("home")}>
+            <Link className="logo" href={pagePaths.home}>
               <div className="logo-box">
                 <PlaceholderImage
                   src="/home/logo.png"
@@ -40,7 +42,7 @@ export default function Footer({ onNavigate }: FooterProps) {
                 <b>Andalucia</b>
                 <span>Engineering Consulting</span>
               </div>
-            </button>
+            </Link>
             <p className="foot-desc">
               Civil and water infrastructure consultancy based in Budapest,
               Hungary. Technical advisory, construction supervision, and project
@@ -74,12 +76,9 @@ export default function Footer({ onNavigate }: FooterProps) {
             <div className="foot-col-title">Services</div>
             <div className="foot-links">
               {serviceLinks.map((link) => (
-                <button
-                  key={link.service}
-                  onClick={() => onNavigate("services", link.service)}
-                >
+                <Link key={link.service} href={`${pagePaths.services}#${link.service}`}>
                   {link.label}
-                </button>
+                </Link>
               ))}
             </div>
           </div>
@@ -87,26 +86,20 @@ export default function Footer({ onNavigate }: FooterProps) {
             <div className="foot-col-title">Company</div>
             <div className="foot-links">
               {company.map((id) => (
-                <button key={id} onClick={() => onNavigate(id)}>
+                <Link key={id} href={pagePaths[id]}>
                   {id === "about"
                     ? "About Us"
                     : id[0].toUpperCase() + id.slice(1)}
-                </button>
+                </Link>
               ))}
             </div>
           </div>
           <div>
             <div className="foot-col-title">Contact</div>
             <div className="foot-links">
-              <button onClick={() => onNavigate("contact")}>
-                Get in Touch
-              </button>
-              <button onClick={() => onNavigate("contact")}>
-                Schedule Consultation
-              </button>
-              <button onClick={() => onNavigate("contact")}>
-                Careers Enquiries
-              </button>
+              <Link href={pagePaths.contact}>Get in Touch</Link>
+              <Link href={pagePaths.contact}>Schedule Consultation</Link>
+              <Link href={pagePaths.contact}>Careers Enquiries</Link>
             </div>
           </div>
         </div>

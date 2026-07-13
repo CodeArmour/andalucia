@@ -19,8 +19,8 @@ export default function PlaceholderImage({
   style,
 }: PlaceholderImageProps) {
   // Placeholder assets intentionally use generated data-URI images until final photos are supplied.
-  // eslint-disable-next-line @next/next/no-img-element
   return (
+    // eslint-disable-next-line @next/next/no-img-element
     <img
       className={className}
       src={src ?? placeholderSrc(label)}
