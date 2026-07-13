@@ -36,23 +36,6 @@ export default function AboutPage({ onNavigate }: PageProps) {
               administration, and project delivery support, our role is to help
               clients make decisions that stand the test of time.
             </p>
-            <p>
-              Established in Budapest, Hungary, we operate with an international
-              perspective, supporting clients across Europe, the MENA region,
-              and beyond. While the consultancy is newly established, it is
-              founded on extensive professional experience gained through
-              participation in multidisciplinary infrastructure programs
-              delivered alongside public authorities, international consultants,
-              contractors, and development partners.
-            </p>
-            <p>
-              Our expertise spans civil engineering, infrastructure development,
-              transportation, water resources, hydraulic structures, project
-              management, technical advisory, and construction supervision.
-              Every engagement is approached with the same objective: delivering
-              engineering solutions that are practical, resilient, and aligned
-              with the long-term interests of our clients.
-            </p>
           </div>
         </div>
       </div>
@@ -104,30 +87,20 @@ export default function AboutPage({ onNavigate }: PageProps) {
             </div>
             <div className="fnd-body">
               <p>
-                Mohamed Abdelalim is a civil and water infrastructure engineer
-                with more than 13 years of experience across MENA, Central Asia,
-                and Europe. His career spans large-scale government programmes,
-                multilateral development bank-funded projects, and independent
-                technical advisory.
+                Infrastructure is more than construction. It is the foundation
+                of economic growth, environmental resilience, and stronger
+                communities. Every successful project begins with informed
+                decisions, technical precision, and the confidence that every
+                stage of delivery is supported by sound engineering judgment.
               </p>
               <p>
-                Before establishing Andalucia Engineering Consulting, Mohamed
-                directed a 924.5 km canal lining programme across 271 canals, a
-                portfolio exceeding 3 billion EGP in value. He subsequently
-                transitioned to international consultancy, most recently serving
-                as an International Supervision Engineer on an MDB-funded
-                irrigation programme in Central Asia.
-              </p>
-              <p>
-                Mohamed is based across Granada, Spain and Budapest, Hungary,
-                and holds full EU work authorisation.
-              </p>
-              <p>
-                His engineering philosophy is founded on technical honesty:
-                every recommendation must be defensible, every design must
-                account for the full lifecycle, and every client deserves
-                counsel that prioritises their project, not the consultant's
-                convenience.
+                At Andalucia Engineering Consulting, we provide independent
+                engineering consultancy for organizations seeking practical,
+                technically robust, and sustainable solutions across the
+                infrastructure lifecycle. From early feasibility studies and
+                technical due diligence to construction supervision, contract
+                administration, and project delivery support, our role is to
+                help clients make decisions that stand the test of time.
               </p>
               <p>
                 Established in Budapest, Hungary, we operate with an
